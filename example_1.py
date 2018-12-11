@@ -32,6 +32,9 @@ class FrenchDeck(object):
         return len(self._cards)
 
     def __getitem__(self, position):
+        """
+        supports - index, slicing, negative index, reverse sorting
+        """
         return self._cards[position]
 
 
@@ -39,4 +42,6 @@ fd = FrenchDeck()
 print(len(fd))
 print(fd[0])
 print(fd[-1])
+print(fd[3:10])
+print(fd[::-1])
 
