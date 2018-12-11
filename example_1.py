@@ -26,7 +26,7 @@ class FrenchDeck(object):
     suites = 'spades diamonds clubs hearts'.split()
 
     def __init__(self):
-        self._cards = [Card(rank, suite) for suite in self.suites for rank in self.ranks]
+        self._cards = [Card(rank, suite) for suite in self.suites for rank in self.ranks] # cartiesen product
 
     def __len__(self):
         return len(self._cards)
