@@ -7,9 +7,7 @@ colors = ["black", "white"]
 sizes = ["S", "M", "L"]
 
 tshirts = [(c, s) for c in colors for s in sizes]
-
 print(tshirts)
-
 
 lax_coordinates = (33.94, -118.40)
 city, year, pop, chg, area = ('Tokyo', 2003, 32450, 0.66, 8014)
