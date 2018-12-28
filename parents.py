@@ -1,5 +1,5 @@
 """
-Calling parent class methods and attributes.
+Initializing parent class methods and attributes.
 """
 
 
@@ -17,7 +17,6 @@ class B(A):
 
 
 b = B()
-b.spam()
 
 
 class C(object):
@@ -57,3 +56,20 @@ print(p.get('name'))
 p
 
 
+class Base(object):
+
+    def __init__(self):
+        print("Base.__init__")
+
+
+class A(Base):
+
+    def __init__(self):
+        Base.__init__(self)
+        print("A.__init__")
+
+
+b = Base()
+a = A()
+print(b)
+print(a)
