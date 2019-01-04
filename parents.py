@@ -13,63 +13,38 @@ class B(A):
 
     def spam(self):
         print("spam B")
-        super().spam()
+        # here, parents class method is overidden in subclass. this will call the parent class spam. 
+        super().spam() # super will always look for the parent class attr & methods
 
+
+a = A()
+a.spam() # spam A
 
 b = B()
+b.spam() # spam B
+         # spam A
+
+
 
 
 class C(object):
 
     def __init__(self):
-        self.x = 0
+        self.x = 1
+        print(self.x)
 
 
 class D(C):
 
     def __init__(self):
+        # Whenever the class D is called, first super will initialize the C class __init__, then self.y will be printed.
         super().__init__()
-        self.y = 1
+        self.y = 2
+        print(self.y)
 
+c = C()
+c # 1
 d = D()
-print(d.x)
-print(d.y)
+d # 1
+  # 2
 
-
-class Proxy(object):
-
-    def __init__(self, obj):
-        self._obj = obj
-
-    def __getattr__(self, name):
-        return getattr(self._obj, name)
-
-    def __setattr__(self, name, value):
-        if name.startswith('_'):
-            super().__setattr__(name, value)
-        else:
-            setattr(self._obj, name, value)
-
-
-p = Proxy({"name": "felix", "last_name": "stephen"})
-print(p.get('name'))
-p
-
-
-class Base(object):
-
-    def __init__(self):
-        print("Base.__init__")
-
-
-class A(Base):
-
-    def __init__(self):
-        Base.__init__(self)
-        print("A.__init__")
-
-
-b = Base()
-a = A()
-print(b)
-print(a)
